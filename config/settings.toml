@@ -1,0 +1,64 @@
+# =========================
+# CỜ TƯỚNG AI — SETTINGS
+# =========================
+
+[window]
+width = 750
+height = 1080
+resizable = true
+fps = 60
+dpi_scale = "auto"          # "auto" | 1.0 | 1.25 | 1.5 ...
+
+[input]
+mode = "click_click"        # "click_click" | "drag_drop"
+confirm_move = false        # nếu true: cần bấm xác nhận sau khi chọn nước
+
+[clock]
+enabled = true
+# thời gian mặc định mỗi bên (giây). ví dụ: 5 phút + 2 giây cộng dồn
+base_seconds = 300
+increment_seconds = 2
+
+[assets]
+# Lưu ý: nên dùng dấu "/" cho đường dẫn tương thích đa nền tảng.
+board_image = "assets/board/board.png"
+
+# Thư mục ảnh quân cờ (đặt theo đề xuất cấu trúc)
+pieces_red_dir = "assets/pieces/red"
+pieces_black_dir = "assets/pieces/black"
+
+# Ví dụ tên file trong thư mục (có thể chỉnh lại cho khớp bộ ảnh của bạn)
+# Nếu bạn muốn chỉ định file lẻ, đặt đường dẫn đầy đủ như: assets/pieces/black/adapter.png
+# Ở đây mình để mặc định theo chuẩn tên file gợi ý.
+[assets.pieces_filenames]
+king    = "king.png"
+advisor = "advisor.png"
+elephant= "elephant.png"
+rook    = "rook.png"
+knight  = "knight.png"
+cannon  = "cannon.png"
+pawn    = "pawn.png"
+
+[audio]
+enabled = true
+click   = "assets/sounds/click.wav"
+move    = "assets/sounds/move.wav"
+capture = "assets/sounds/capture.wav"
+check   = "assets/sounds/check.wav"
+
+[ai]
+# cấp độ sẽ được UI chọn, nhưng để mặc định mức Trung bình
+default_level = "medium"          # easy | medium | hard
+easy_depth    = 2
+medium_depth  = 3
+hard_depth    = 5
+use_iterative_deepening = true
+use_quiescence = false
+use_transposition = false         # có thể bật ở mức hard
+
+[ui]
+theme = "light"                   # light | dark
+show_move_list = true
+show_status_bar = true
+highlight_moves = true
+animation_ms = 200
