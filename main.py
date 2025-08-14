@@ -1,28 +1,40 @@
+# main.py
 import pygame
-import pygame_gui
 from ui.main_menu import MainMenu
 
-pygame.init()
-pygame.display.set_caption("Cờ Tướng AI")
+def run():
+    pygame.init()
+    screen = pygame.display.set_mode((550, 900))
+    pygame.display.set_caption("Cờ Tướng AI")
+    clock = pygame.time.Clock()
 
-WINDOW_SIZE = (750, 1080)
-screen = pygame.display.set_mode(WINDOW_SIZE)
-manager = pygame_gui.UIManager(WINDOW_SIZE, theme_path=None)
+    menu = MainMenu(screen)
+    current_screen = "menu"
 
-menu = MainMenu(screen, manager)
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            if current_screen == "menu":
+                result = menu.handle_event(event)
+                if result == "play_ai":
+                    current_screen = "ai_game"
+                    # TODO: khởi tạo game đấu AI
+                elif result == "play_pvp":
+                    current_screen = "pvp_game"
+                    # TODO: khởi tạo game hai người
 
-clock = pygame.time.Clock()
-running = True
-while running:
-    dt = clock.tick(60) / 1000
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-        manager.process_events(event)
+        if current_screen == "menu":
+            menu.draw()
+        else:
+            # TODO: vẽ màn hình trò chơi sau khi vào trận
+            pass
 
-    manager.update(dt)
-    menu.draw()
-    manager.draw_ui(screen)
-    pygame.display.flip()
+        pygame.display.flip()
+        clock.tick(60)
 
-pygame.quit()
+    pygame.quit()
+
+if __name__ == "__main__":
+    run()
