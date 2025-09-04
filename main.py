@@ -35,11 +35,11 @@ logo_x = (SCREEN_WIDTH - 200) // 2
 logo_y = 130
 
 # Nút chơi game
-btn_play_ai_img = pygame.image.load('assets/UI/btn_pvai.png')
-btn_play_ai_img = pygame.transform.scale(btn_play_ai_img, (420, 140))
+btn_pvai_img = pygame.image.load('assets/UI/btn_pvai.png')
+btn_pvai_img = pygame.transform.scale(btn_pvai_img, (420, 140))
 
-btn_play_pvp_img = pygame.image.load('assets/UI/btn_pvp.png')
-btn_play_pvp_img = pygame.transform.scale(btn_play_pvp_img, (420, 140))
+btn_pvp_img = pygame.image.load('assets/UI/btn_pvp.png')
+btn_pvp_img = pygame.transform.scale(btn_pvp_img, (420, 140))
 
 # Căn giữa nút 420px theo chiều ngang
 btn_game_width, btn_game_height = 420, 150
@@ -93,7 +93,7 @@ def on_exit_click():
     pygame.quit()
     sys.exit()
 
-def on_ai_click():
+def on_pvai_click():
     print("→ CHƠI VỚI MÁY")
 
 def on_pvp_click():
@@ -115,8 +115,8 @@ def on_github_click():
 setting_button = ImageButton(btn_setting_img, 60, 30, on_setting_click)
 exit_button = ImageButton(btn_exit_img, 410, 30, on_exit_click)
 
-ai_button = ImageButton(btn_play_ai_img, btn_ai_x, btn_ai_y, on_ai_click)
-pvp_button = ImageButton(btn_play_pvp_img, btn_ai_x, btn_pvp_y, on_pvp_click)
+ai_button = ImageButton(btn_pvai_img, btn_ai_x, btn_ai_y, on_pvai_click)
+pvp_button = ImageButton(btn_pvp_img, btn_ai_x, btn_pvp_y, on_pvp_click)
 
 facebook_button = ImageButton(icon_facebook_img, facebook_x, icon_y, on_facebook_click)
 rules_button = ImageButton(icon_rules_img, rules_x, icon_y, on_rules_click)
