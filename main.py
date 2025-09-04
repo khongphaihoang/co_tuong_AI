@@ -1,4 +1,5 @@
 import pygame
+import subprocess
 import sys
 import webbrowser
 from pygame.locals import *
@@ -95,9 +96,11 @@ def on_exit_click():
 
 def on_pvai_click():
     print("→ CHƠI VỚI MÁY")
+    subprocess.Popen([sys.executable, "engine/board_pvai.py"])
 
 def on_pvp_click():
     print("→ HAI NGƯỜI CHƠI")
+    subprocess.Popen([sys.executable, "engine/board_pvp.py"])
 
 def on_facebook_click():
     print("→ FACEBOOK")
