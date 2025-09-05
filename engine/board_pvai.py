@@ -9,7 +9,7 @@ WIDTH, HEIGHT = 1200, 800
 FPS = 60
 
 window = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Cờ Tướng – PVAI Only")
+pygame.display.set_caption("Game Cờ Tướng")
 clock = pygame.time.Clock()
 
 base_path = os.path.dirname(os.path.abspath(__file__))
